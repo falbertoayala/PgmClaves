@@ -124,6 +124,49 @@ public class Conector {
         return false;
     }
     
+     //Codigo que consulta usuarios  
+      public String getTablaCalendar(String usuarios){
+        
+        conn = connectDB();
+        String query = " select * from Users";
+        PreparedStatement consulta = null;
+        ResultSet resultadotabla = null;
+        String w = "";
+        PreparedStatement preStmt =null;
+        StringBuilder tabla = new StringBuilder(w);
+        
+        try{
+            consulta = conn.prepareStatement(query);
+            consulta.setString(1, usuarios);
+            resultadotabla = consulta.executeQuery();
+            tabla.append("user|\tCorreo\n");
+            while (resultadotabla.next()){
+                tabla.append(resultadotabla.getInt(1)).append("\t");
+                tabla.append(resultadotabla.getString(2)).append("\t");
+                tabla.append(resultadotabla.getDouble(3)).append("\n");
+            }
+            return tabla.toString();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    
+            finally {
+            try {
+                if (preStmt != null) {
+                    preStmt.close();
+                }
+                if (conn != null) {
+                    disconnectDB(conn);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return tabla.toString();
+    }
+    
+    
     //Crea Usuario en el Programa
     
     public int insertarUsuarios(String userName, String userEmail, String userPasswd){

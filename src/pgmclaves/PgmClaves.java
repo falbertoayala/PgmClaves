@@ -23,6 +23,8 @@ public class PgmClaves {
         //Console console = System.console();
         Scanner sc = new Scanner(System.in);
         Validador validador = new Validador();
+        int opcion = 0;
+        Menu menu = new Menu();
 
         //String password ;
         //Console console = null;
@@ -30,16 +32,38 @@ public class PgmClaves {
         System.out.println("********************************************************************");
         Conector conector = new Conector();
         System.out.print("Favor Ingresa tu Usuario : ");
+        
         String user = sc.nextLine();
         conector.getTablauser(user);
         if (conector.getTablauser(user) == true) {
             validador.ValidadorClave();
-           
+            //menu.imprimirMenuPrincipal();
+            //System.out.print("Ingrese codigo>> ");
+            //opcion = sc.nextInt();
+            /*do {switch (opcion) {
+                case 1:
+                    String usuarios = "";
+                    usuarios = conector.getTablaCalendar(usuarios);
+                    System.out.println(usuarios);
+                    break;
+
+                case 2:
+                    menu.imprimirMenuIngreso();
+                    break;
+                    
+                 case 3:
+                    
+                   break;   
+            }
+            }while (opcion != 3);
+                    
+            
 
         } else {
-            
+            menu.imprimirMenuIngreso();*/
             Conector cn = new Conector();
-            System.out.println("MENU DE CREACION DE USUARIOS");
+             
+            
             System.out.println("Ingrese Nombre :");
             String name = sc.nextLine();
             System.out.print("Ingrese su Correo :");
@@ -49,10 +73,12 @@ public class PgmClaves {
             //String password = new String(console.readPassword());
             String password = sc.nextLine();
             cn.insertarUsuarios(name, email, password);
-
+            System.out.println("Usuario Creado");
+              
         }
 
     }
     
 
-}
+    }
+

@@ -15,7 +15,7 @@ public class Validador {
     String Passwd ;
     correo enviar = new correo();
     String email = "falberto.ayala@gmail.com";
-    String titulo = "As ingresado mas 3 de veces tu contraseña";
+    String titulo = "Has ingresado mas 3 de veces tu contraseña";
     String detalle  = " Revisa tu correo para verificar si eres tu";
     
     int contador = 0;
