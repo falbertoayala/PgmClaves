@@ -20,7 +20,7 @@ public class PgmClaves {
     public static void main(String[] args) {
         
 
-        Console console = System.console();
+        //Console console = System.console();
         Scanner sc = new Scanner(System.in);
         Validador validador = new Validador();
 
