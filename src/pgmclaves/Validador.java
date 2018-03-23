@@ -13,8 +13,14 @@ import java.io.Console;
 public class Validador {
     Scanner s;
     String Passwd ;
+    correo enviar = new correo();
+    String email = "falberto.ayala@gmail.com";
+    String titulo = "As ingresado mas 3 de veces tu contraseña";
+    String detalle  = " Revisa tu correo para verificar si eres tu";
+    
     int contador = 0;
-    int contador2 = 0; 
+    
+    
     //Console console ;
     
     public Validador(){
@@ -40,11 +46,14 @@ public class Validador {
             do{
                 
                 if (conector.getTablauserPassword(Passwd) == false) {
+                System.out.println("Clave Incorrecta");
                 System.out.print("Ingrese Contraseña: ");
                 Passwd = s.nextLine();
                 contador = contador +1 ;
                    if(contador >=3){
+                       
                        System.out.println("Se ha Enviado un correo de Notifacion Intento Ingresar mas de " + " " + contador + " Veces");
+                       enviar.enviar(email,titulo,detalle);
                    }
                 }
                       
