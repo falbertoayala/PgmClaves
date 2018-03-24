@@ -18,7 +18,6 @@ public class PgmClaves {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
 
         //Console console = System.console();
         Scanner sc = new Scanner(System.in);
@@ -32,53 +31,66 @@ public class PgmClaves {
         System.out.println("********************************************************************");
         Conector conector = new Conector();
         System.out.print("Favor Ingresa tu Usuario : ");
-        
+
         String user = sc.nextLine();
         conector.getTablauser(user);
         if (conector.getTablauser(user) == true) {
             validador.ValidadorClave();
-            //menu.imprimirMenuPrincipal();
-            //System.out.print("Ingrese codigo>> ");
-            //opcion = sc.nextInt();
-            /*do {switch (opcion) {
-                case 1:
-                    String usuarios = "";
-                    usuarios = conector.getTablaCalendar(usuarios);
-                    System.out.println(usuarios);
-                    break;
-
-                case 2:
-                    menu.imprimirMenuIngreso();
-                    break;
-                    
-                 case 3:
-                    
-                   break;   
-            }
-            }while (opcion != 3);
-                    
+            do { menu.imprimirMenuPrincipal();
+             System.out.print("Ingrese codigo>> ");
+             opcion = sc.nextInt();
             
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Solo la version de Paga");
+                        break;
+
+                    case 2:
+                        menu.imprimirMenuIngreso();
+                        break;
+
+                    case 3:
+
+                        break;
+                }
+            } while (opcion != 3);
+            //opcion = sc.nextInt();        
 
         } else {
-            menu.imprimirMenuIngreso();*/
-            Conector cn = new Conector();
-             
+            do{ 
+            menu.imprimirMenuIngreso();
+             Conector cn = new Conector();
             
-            System.out.println("Ingrese Nombre :");
-            String name = sc.nextLine();
-            System.out.print("Ingrese su Correo :");
-            String email = sc.nextLine();
-            System.out.print("Ingrese su Password :");
-            //password = console.readPassword(password, args);
-            //String password = new String(console.readPassword());
-            String password = sc.nextLine();
-            cn.insertarUsuarios(name, email, password);
-            System.out.println("Usuario Creado");
-              
+
+            
+                System.out.print("Ingrese codigo>> ");
+                opcion = sc.nextInt();
+                switch (opcion) {
+
+                    case 1:
+                        sc.nextLine();
+                        System.out.println("Ingrese Nombre :");
+                        String name = sc.nextLine();
+                        System.out.print("Ingrese su Correo :");
+                        String email = sc.nextLine();
+                        System.out.print("Ingrese su Password :");
+                        //password = console.readPassword(password, args);
+                        //String password = new String(console.readPassword());
+                        String password = sc.nextLine();
+                        cn.insertarUsuarios(name, email, password);
+                        System.out.println("Usuario Creado");
+
+                        break;
+
+                    case 2:
+                        menu.imprimirMenuPrincipal();
+                        break;
+
+                }
+            } while (opcion != 3);
         }
 
-    }
-    
 
     }
 
+}
